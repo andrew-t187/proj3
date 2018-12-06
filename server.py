@@ -60,7 +60,7 @@ def clientthread(conn):
         
         conn.sendall('Login successful')
         time.sleep(0.2)
-         
+
         if username == 'user1':
             unreadMessage = user1MSG
         elif username == 'user2':
@@ -73,7 +73,6 @@ def clientthread(conn):
         while True:
             conn.sendall('Number of unread messages: ' + str(len(unreadMessage)) + '\nType 0 to logout\nType 1 to broadcast a message to all other users\nType 2 to change your password\nType 3 to send a private message to any other user\nType 4 to read all unread messages')
             userAction = conn.recv(1024)
-            print userAction
             if userAction == '0':
                 conn.sendall('You are now logged out and will be disconnected')
                 conn.close()
@@ -121,6 +120,7 @@ def clientthread(conn):
             elif userAction == '4':
                 for i in unreadMessage:
                     conn.sendall(i + '\n')
+                    conn.recv(1024)
                 del unreadMessage[:]
                 continue
 

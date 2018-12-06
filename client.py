@@ -66,7 +66,7 @@ while(1):
             s.sendall(userPM)
         elif reply[0:12] == 'Message from':
             print reply
-            continue
+            s.sendall('ACK')
         elif reply == 'Message Sent\n':
             print reply
             continue
