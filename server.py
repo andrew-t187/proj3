@@ -84,7 +84,6 @@ def clientthread(conn):
                 broadcastMsg = conn.recv(1024)
                 for j in userClient:
                     j.sendall('\nBroadcast message from another user: ' + broadcastMsg)
-                    conn.recv(1024)
             elif userAction == '2':
                 conn.sendall('Enter your current password: ')
                 password = conn.recv(1024)

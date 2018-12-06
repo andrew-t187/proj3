@@ -57,7 +57,6 @@ while(1):
             s.sendall(broadMsg)
         elif reply[0:4] == '\nBro':
             print reply
-            s.sendall('ACK')
             continue
         elif reply == 'You have been signed out. Please enter your username and new password.':
             print reply
